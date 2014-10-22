@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Chronogast</title>
+		<meta name="description" content="">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+		<meta http-equiv="cleartype" content="on">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Chronogast">
+		
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/72.png">
+		<link rel="apple-touch-icon-precomposed" href="57.png">
+		<link rel="shortcut icon" href="img/144.png">
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	
+		<link rel="stylesheet" href="css/normalize.css">
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="fonts/prefix/stylesheet.css">
+		<link rel="stylesheet" href="css/html5bp.css">
+		<link rel="stylesheet" href="css/chronogast.css">
+		<link href="img/0.jpg">
+		<link href="img/1.jpg">
+		<link href="img/2.jpg">
+		<link href="img/3.jpg">
+		<link href="img/medium.png">
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	</head>
+	<body>
+		<!-- Add your site or application content here -->
+		<div id="screen">
+			<div id="loading">
+				<h1>Chronogast</h1>
+				<p>Loading...</p>
+			</div>
+			<div id="start">
+				<h1>Chronogast</h1>
+				<button id="begin">Begin</button>
+				<p id="requirements"><strong>Error:</strong> Mobile phone with GPS required.</p> 
+				<div class="debug">
+					<hr/>
+					<button id="clear">Clear Cache</button>
+				</div>
+			</div>
+			<div id="dialog">
+				<div id="portrait">
+					<img>
+				</div>
+				<div id="text">
+					Lorem ispum...
+				</div>
+				<div id="responses">
+					<ul>
+						<li><a href="#" id="response-positive">Positive</a></li>
+						<li><a href="#" id="response-negative">Negative</a></li>
+					</ul>					
+				</div>
+			</div>
+			<div id="mission">
+				<img />
+				<p></p>
+				<button id="scan">Scan</button>
+				<div id="temp"></div>
+				<div class="debug">
+					<hr/>
+					Debug
+					<button id="win">Win</button>
+					<table>
+						<tr>
+							<th></th>
+							<th>Long</th>
+							<th>Lat</th>
+						</tr>
+						<tr>
+							<th>Tar</th>
+							<td id="target-longitude"></td>
+							<td id="target-latitude"></td>
+						</tr>
+						<tr>
+							<th>Wch</th>
+							<td id="watch-longitude"></td>
+							<td id="watch-latitude"></td>
+						</tr>
+						<tr>
+							<th>Dist</th>
+							<td id="distance" colspan="2"></td>
+						</tr>
+					</table>
+					<button id="stop">Stop Scan</button>
+	
+				</div>
+			</div>
+			<div id="story">
+				<p></p>
+				<button id="next">Next</button>
+			</div>
+			<div id="end">
+				<p>The End</p>
+			</div>
+		</div>
+	</body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js?v=49"></script>
+</html>

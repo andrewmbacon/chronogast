@@ -1,0 +1,38 @@
+/* 
+	Chronogast
+	by Andrew Bacon
+	October 2014
+	
+*/
+
+table, td, th {border:1px solid #ccc; text-align:left;}
+td, th {padding:.5em;}
+
+
+body {
+	background-image:url(../img/bg.jpg);
+	color:white;
+}
+
+#screen {
+	width:310px;
+	margin:5px auto;
+	position:relative;
+	}
+	#screen img {
+		max-width:100%;
+		}
+
+
+#start {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-image:url(../img/bg.jpg);
+	z-index:9999;
+}
+
+
+
