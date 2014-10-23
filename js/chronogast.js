@@ -55,18 +55,19 @@ function init(){
 	$('#end').hide();
 	$('#distance-label').hide();	
 	deleteFromLocal('distance');
-	/*
+	
 	$.urlParam = function(name){
 		var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-		return results[1] || 0;
+		if (results != null ) {
+			return results[1] || 0;
+		}
+		//
 	}
-	console.log($.urlParam('id'))        // 6
 	
 	if ($.urlParam('id') == 1){
-		console.log('boom')
 		$('.debug').show();	
 	}
-	*/
+	
 }
 
 function mobileCheck(){
