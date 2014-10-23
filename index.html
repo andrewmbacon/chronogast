@@ -37,20 +37,28 @@
 	</head>
 	<body>
 		<!-- Add your site or application content here -->
-		<div id="screen">
+		<div id="screen" class="container">
 			<div id="loading">
-				<h1>Chronogast</h1>
 				<p>Loading...</p>
 			</div>
 			<div id="start">
-				<h1>Chronogast</h1>
-				<button id="begin">Begin</button>
-				<p id="requirements"><strong>Error:</strong> Mobile phone with GPS required.</p> 
-				<div class="debug">
-					<hr/>
-					<button id="clear">Clear Cache</button>
+				<div id="start-inner" class="container">
+					<h1 id="logo"><span class="logo-piece" id="logo-piece-1">Chrono</span><span class="logo-piece" id="logo-piece-2">gast</span></h1>
+					<button id="begin" >Establish Uplink</button>
+					<p id="requirements"><strong>Error</strong> Uplink requires GPS phone</p> 
+					<div class="debug">
+						<hr/>
+						<button id="clear">Clear Cache</button>
+					</div>
 				</div>
 			</div>
+			<div id="intro">
+				<img  src="img/medium.png"/>
+				<p>Greetings, I'm from the future, and I need your help. Scattered around the campus of the University of Connecticut are a number of tranmission points. In these locations our technology is capable of sending and receiving electronic data across timespace. </p>
+				<p>We need you to get to these transmission points with your phone, from there we can triangulate your signal with others to measure various atmospheric data vital to our reserarch. </p>
+				<p>We will send you an image of the transmission point, and use your phone's GPS to help you hone in on the locations. When you're ready to begin, luanch the mission. </p>
+				<p><button id="intro-complete">Launch Mission</button></p>
+			</div>	
 			<div id="dialog">
 				<div id="portrait">
 					<img>
@@ -69,7 +77,10 @@
 				<img />
 				<p></p>
 				<button id="scan">Scan</button>
-				<div id="temp"></div>
+				<div id="readout">
+					<pre id="distance-label">Distance to Rift:</pre>
+					<div id="temp"></div>
+				</div>
 				<div class="debug">
 					<hr/>
 					Debug
@@ -100,15 +111,46 @@
 				</div>
 			</div>
 			<div id="story">
-				<p></p>
-				<button id="next">Next</button>
+				<div id="transmission">
+					<div class="spinner">
+						<div class="rect1"></div>
+						<div class="rect2"></div>
+						<div class="rect3"></div>
+						<div class="rect4"></div>
+						<div class="rect5"></div>
+						<div class="rect6"></div>
+						<div class="rect7"></div>
+						<div class="rect8"></div>
+						<div class="rect9"></div>
+						<div class="rect10"></div>
+					</div>
+				</div>
+				<div id="story-text">
+					<p></p>
+					<button id="next">Launch Next Mission</button>
+				</div>
 			</div>
 			<div id="end">
-				<p>The End</p>
+				<p>You've done it! With that last transmission, you've given us all the data we need. Send us your name, and you will be remembered for generations to come, and entered into our archives as a hero.</p>
+				<p><a href="mailto:chronogast@gmail.com?subject=Mission Accomplished">chronogast@gmail.com</a></p>
+				
+				<p>Current Record of Heroes:</p>
+				
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Date</th>
+					</tr>
+					<tr>
+						<td>None yet, you're the first!</td>
+						<td></td>
+					</tr>
+				</table>	
+			
 			</div>
 		</div>
 	</body>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/plugins.js"></script>
-	<script src="js/main.js?v=49"></script>
+	<script src="js/chronogast.js?v=49"></script>
 </html>

@@ -3,26 +3,26 @@ $( document ).ready(function() {
 var currentMission
 var missions = [
 	{
-		mission:'Labor organizer, born 5 October 1907 in Alhambra, Illinois.',
-		story:'BISHOP CENTER SUCCESS. A story element goes here. ',
+		mission:'',
+		story:'Well done, we\'re getting some great data here. The Committee is really going to appreciate this. We have so few primary sources from your time. ',
 		targetLong: -72.24403833977155,
 		targetLat:   41.80666076954622
 	},
 	{
-		mission:'Chief conductor of Lyric Records, 1917-1921',
-		story:'VON DER MEHDEN OBELISK. A story element goes here. ',
+		mission:'',
+		story:'Interesting, it\'s amazing to see how peaceful and orderly your time is. Storrs is quite different when it isn\'t flooded with refugees.',
 		targetLong: -72.24569611258083,
 		targetLat:   41.805246491024086
 	},
 	{
-		mission:'A center of the town, beginning in your time.',
-		story:'STORRS CENTER SUCCESS. A story element goes here. ',
+		mission:'',
+		story:'Wonderful. We\'re almost done. One more and the dataset will be complete. Then we can comapre it against the archives of the Committee fo the Presevation of Civilization. ',
 		targetLong: -72.2433140595185,
 		targetLat:   41.80493686352093
 	},
 	{
-		mission:'SiO2 near the CRT',
-		story:'QUARTZ SCULPTURE SUCCESS. A story element goes here. ',
+		mission:'',
+		story:'That does it! You\'ve been incredibly helpful. We\'re not supposed to mention this, but... here\s a quick tip. Move to Canada. Ok? Your friend from the future is suggesting you go north. As far north as north goes.',
 		targetLong: -72.24567190414,
 		targetLat:   41.804168313454
 	}
@@ -40,12 +40,27 @@ var storyText = [
 	'Here is a bit more story for finishing mission 2.'
 ];
 function init(){
+	$('.debug').hide();
+	$('#loading').hide();	
+	$('#dialog').hide();	
 	$('#begin').hide();	
+	$('#intro').hide();	
 	$('#requirements').hide();	
 	$('#mission').hide();		
 	$('#story').hide();	
 	$('#end').hide();
+	$('#distance-label').hide();	
 	deleteFromLocal('distance');
+	$.urlParam = function(name){
+		var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+		return results[1] || 0;
+	}
+	console.log($.urlParam('id'))        // 6
+	
+	if ($.urlParam('id') == 1){
+		console.log('boom')
+		$('.debug').show();	
+	}
 }
 
 function mobileCheck(){
@@ -68,7 +83,14 @@ function loadMission(num){
 
 
 function loadStory(num){
+	$('#next').hide();
+	$('#transmission').show();
 	$('#story p').html(missions[num].story);
+	setTimeout(function hide(){
+		$('#transmission').hide();
+			$('#next').show();
+
+	}, 3000);
 }
 
 
@@ -78,6 +100,9 @@ function missionComplete() {
 	$('#mission').hide();
 	loadStory(currentMission);
 	$('#story').show();
+	$('#scan').show();
+	$('#distance-label').hide();
+
 	currentMission++;
 	//alert('Success! Mission '+num+' completed.');
 	deleteFromLocal('distance');
@@ -85,18 +110,25 @@ function missionComplete() {
 }
 
 
+function intro(){
+	console.log('intro...');
+}
+
 
 
 function scan(num){
 	//alert('Scan...');
 	console.log('scanning...')
 	
+	$('#scan').hide();
+	$('#distance-label').show();
+	
 	var targetLatitude		= missions[num].targetLat;
 	var	targetLongitude	= missions[num].targetLong;
 	console.log(targetLatitude)
 	console.log(targetLongitude)
 	var precision 			= 3; // how many meters before an update in temp. 
-	var targetProximity	= 15; // how close, in meters, to the target for success
+	var targetProximity	= 7; // how close, in meters, to the target for success
 	
 	function roughPosition(num){
 		//console.log('num: '+num);
@@ -106,7 +138,7 @@ function scan(num){
 	}
 	
 	function updateCell(target, value){
-		$(target).hide().html(value).fadeIn(150);	
+		$(target).hide().html(value).fadeIn(200);	
 	}
 	function error_callback(){
 		/*alert('What are you doing? We\'ve lost the signal...');
@@ -138,8 +170,7 @@ function scan(num){
 	
 	
 		// Measure distance from target
-		
-		//http://stackoverflow.com/questions/13840516/how-to-find-my-distance-to-a-known-location-in-javascript
+
 		function distance(lon1, lat1, lon2, lat2) {
 			var R = 6371; // Radius of the earth in km
 			var dLat = (lat2-lat1).toRad();  // Javascript functions in radians
@@ -184,22 +215,25 @@ function scan(num){
 					
 					if (distanceDiff >= precision) {
 						if (oldDistance > distance) {
-							tempMessage = 'Warmer...';
+							tempMessage = Math.round(distance);
+							$('#temp').removeClass('cooler').addClass('warmer');
 							writeToLocal('distance', distance);
 						} else if (oldDistance < distance) {
-							tempMessage = 'Cooler...';
+							tempMessage = Math.round(distance);
+							$('#temp').removeClass('warmer').addClass('cooler');
 							writeToLocal('distance', distance);
 						}
 					} else {
-						tempMessage = 'About the same. Keep moving.';
+						tempMessage = Math.round(distance);
+						$('#temp').removeClass('warmer').removeClass('cooler');
 					}
 				} else {
 					console.log('oldDistance missing...');
-					tempMessage = 'Initializing... keep moving.';
+					tempMessage = '--';
 					writeToLocal('distance', distance);
 				}	
 			} else {
-				alert('Found it.');
+				alert('Locked in. Good job.');
 				missionComplete();
 				navigator.geolocation.clearWatch(id);
 				return false;
@@ -210,7 +244,6 @@ function scan(num){
 	
 	//navigator.geolocation.watchPosition(setInterval(show_watch, 3000), error_callback, {enableHighAccuracy: true, timeout: 2000, maximumAge: 1000});	
 	id = navigator.geolocation.watchPosition(show_watch, error_callback, {enableHighAccuracy: true, timeout: 2000, maximumAge: 1000});	
-	id 
 } // end scan()
 
 
@@ -219,7 +252,6 @@ function clearCache(){
 	 window.location.reload(true);
 	 localStorage.clear();	
 }
-
 
 
 
@@ -275,10 +307,17 @@ mobileCheck();
 
 
 $('#begin').on('click',(function(e){
-	loadMission(0);
+	intro();
 	$('#start').hide();
+	$('#intro').show();
+}));
+
+$('#intro-complete').on('click',(function(e){
+	loadMission(0);
+	$('#intro').hide();
 	$('#mission').show();
 }));
+
 
 
 $('#win').on('click',(function(e){

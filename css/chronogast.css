@@ -5,19 +5,34 @@
 	
 */
 
+.debug {
+	font-size:8px!important;
+}
+
 table, td, th {border:1px solid #ccc; text-align:left;}
 td, th {padding:.5em;}
 
 
 body {
-	background-image:url(../img/bg.jpg);
+	background-image:url(../img/bg.gif);
 	color:white;
 }
 
-#screen {
+.container {
 	width:310px;
 	margin:5px auto;
-	position:relative;
+	}
+	
+button {
+	font-family:'Montserrat', sans-sierf;
+	padding:1.1em 1.6em 1em;
+	border-radius:.4em;
+	border:none;
+	background-color:white;
+	}
+
+#screen {
+	text-align:center;
 	}
 	#screen img {
 		max-width:100%;
@@ -30,9 +45,229 @@ body {
 	left:0;
 	width:100%;
 	height:100%;
-	background-image:url(../img/bg.jpg);
+	background-image:url(../img/bg.gif);
 	z-index:9999;
+	text-align:center;
+	}
+
+
+	#logo {
+		font-family: 'prefixendangered', sans-serif;
+		font-weight:normal;
+		font-size:3.5em;
+		line-height:1.2em;
+		text-align:center;
+		}
+		
+		#logo .logo-piece {
+			display:block;
+			}
+			
+			#logo-piece-1 {
+				padding-left:.3em;
+				text-transform:lowercase;	
+				text-shadow:.2em .1em #365969;
+				letter-spacing:1px;
+				color:#fff;
+				}
+				
+			#logo-piece-2 {
+				text-transform:uppercase;	
+				text-shadow:-.1em 0 #666767;			
+				color:#5fd0ff;
+				}
+				
+	#begin {
+		background-image:url(../img/red-bg.png);
+		color:white;
+		
+		position:relative;
+		box-shadow:0 1px 1px #000;
+		}
+		#begin,
+		#begin:before, 
+		#begin:after {
+			border-radius:.5em;
+			}
+		
+		#begin:before {
+			content:'';
+			display:block;
+			position:absolute;
+			left:0;
+			top:0;
+			width:100%;
+			height:100%;
+			box-shadow: inset 0 -4px 4px rgba(0,0,0,.3);
+			}
+			#begin:active:before {
+				box-shadow: inset 0 4px 4px rgba(0,0,0,.3);
+				}
+		#begin:after {
+			content:'';
+			display:block;
+			position:absolute;
+			left:0;
+			top:0;
+			width:100%;
+			height:100%;
+			box-shadow: inset 0 4px 4px rgba(255,255,255,.1);
+			}
+			#begin:active:after {
+				box-shadow: inset 0 -4px 4px rgba(255,255,255,.1);
+				}
+			
+	
+	#requirements {
+		font-family: 'prefixendangered', sans-serif;
+		font-weight:normal;
+		font-size:1.5em;
+		line-height:1.2em;
+		color:#fff;
+		width:200px;
+		margin:auto;
+		}
+		#requirements strong {
+			color:red;
+			font-weight:normal;
+			text-transform:lowercase;
+			display:block;
+			font-size:1.4em;
+			padding:0 0 1.2em .2em;
+			}
+			
+#intro {
+	text-align:left;
+	padding:1em;
+	}
+			
+			
+#mission {}
+
+	#readout {}
+	
+		#readout pre {
+			font: 1em 'prefixendangered', sans-serif;
+			color:#666;
+			}
+		#temp {
+			text-align:center;
+			font: 2.5em 'prefixendangered', sans-serif;
+			color:#fff;
+			}
+			#temp.warmer {
+				color:green;
+				}
+			#temp.cooler {
+				color:red;
+				}
+				
+				
+#story {
+	padding-top:130px;
+	position:relative;
+	}
+
+			
+#transmission {
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	padding-top:40px;	
 }
+#next {
+	position:absolute;
+	width:180px;
+	top:40px;
+	left:50%;
+	margin-left:-90px;
 
+}
+.spinner {
+	width: 100px;
+	margin:auto;
+	height: 30px;
+	text-align: center;
+	font-size: 10px;
+	}
+	
+	.spinner > div {
+		background-color: #62d3fd;
+		height: 100%;
+		width: 6px;
+		display: inline-block;
+		
+		-webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+		animation: stretchdelay 1.2s infinite ease-in-out;
+		opacity:.4;
+		}
+		
+		.spinner .rect2 {
+			-webkit-animation-delay: -1.1s;
+			animation-delay: -1.1s;
+			}
+		
+		.spinner .rect3 {
+			-webkit-animation-delay: -1.0s;
+			animation-delay: -1.0s;
+			}
+		
+		.spinner .rect4 {
+			-webkit-animation-delay: -0.9s;
+			animation-delay: -0.9s;
+			}
+		
+		.spinner .rect5 {
+			-webkit-animation-delay: -0.8s;
+			animation-delay: -0.8s;
+			}
+		.spinner .rect6 {
+			-webkit-animation-delay: -0.7s;
+			animation-delay: -0.7s;
+			}
+		.spinner .rect7 {
+			-webkit-animation-delay: -0.6s;
+			animation-delay: -0.6s;
+			}
+		.spinner .rect8 {
+			-webkit-animation-delay: -0.5s;
+			animation-delay: -0.5s;
+			}
+		.spinner .rect9 {
+			-webkit-animation-delay: -0.4s;
+			animation-delay: -0.4s;
+			}
+		.spinner .rect10 {
+			-webkit-animation-delay: -0.3s;
+			animation-delay: -0.3s;
+			}
+		
+@-webkit-keyframes stretchdelay {
+	0%, 40%, 100% { 
+		-webkit-transform: scaleY(0.4);
+		opacity:.8;
+		}  
+	20% { 
+		-webkit-transform: scaleY(1.0);
+		opacity:1;
+		}
+	}
 
-
+@keyframes stretchdelay {
+	0%, 40%, 100% { 
+		transform: scaleY(0.4);
+		-webkit-transform: scaleY(0.4);
+		} 
+	20% {
+		transform: scaleY(1.5);
+		-webkit-transform: scaleY(1.5);
+		}
+	}
+	
+	
+#end {
+	}
+	#end a {
+		color:#A1E2FF;
+		}
