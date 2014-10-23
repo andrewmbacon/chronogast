@@ -5,24 +5,28 @@ var missions = [
 	{
 		mission:'',
 		story:'Well done, we\'re getting some great data here. The Committee is really going to appreciate this. We have so few primary sources from your time. ',
+		// bishop circle
 		targetLong: -72.24403833977155,
 		targetLat:   41.80666076954622
 	},
 	{
 		mission:'',
 		story:'Interesting, it\'s amazing to see how peaceful and orderly your time is. Storrs is quite different when it isn\'t flooded with refugees.',
+		// royce circle
+		targetLong: -72.24569624335043697826,
+		targetLat:   41.80493686352093
+	},
+	{
+		mission:'',
+		story:'Wonderful. We\'re almost done. One more and the dataset will be complete. Then we can comapre it against the archives of the Committee fo the Presevation of Civilization. ',
+		// von der mehden obelisk
 		targetLong: -72.24569611258083,
 		targetLat:   41.805246491024086
 	},
 	{
 		mission:'',
-		story:'Wonderful. We\'re almost done. One more and the dataset will be complete. Then we can comapre it against the archives of the Committee fo the Presevation of Civilization. ',
-		targetLong: -72.2433140595185,
-		targetLat:   41.80493686352093
-	},
-	{
-		mission:'',
 		story:'That does it! You\'ve been incredibly helpful. We\'re not supposed to mention this, but... here\s a quick tip. Move to Canada. Ok? Your friend from the future is suggesting you go north. As far north as north goes.',
+		//butt rock
 		targetLong: -72.24567190414,
 		targetLat:   41.804168313454
 	}
@@ -51,6 +55,7 @@ function init(){
 	$('#end').hide();
 	$('#distance-label').hide();	
 	deleteFromLocal('distance');
+	/*
 	$.urlParam = function(name){
 		var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
 		return results[1] || 0;
@@ -61,6 +66,7 @@ function init(){
 		console.log('boom')
 		$('.debug').show();	
 	}
+	*/
 }
 
 function mobileCheck(){
